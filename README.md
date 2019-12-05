@@ -2,4 +2,4 @@
 
 | Competition   | Date          |
 | ------------- | ------------- |
-| The Prisioner | November 2019 |
+| The Prisioner | December 19 - |
