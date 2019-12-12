@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.everis</groupId>
+  <artifactId>PrisonerJudge</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>The Prisoner Judge</name>
+  <description>El juez para el problema del prisionero</description>
+  <dependencies>
+  	<dependency>
+    	<groupId>org.reflections</groupId>
+    	<artifactId>reflections</artifactId>
+    	<version>0.9.11</version>
+	</dependency>
+</dependencies>
+<properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+</project>
