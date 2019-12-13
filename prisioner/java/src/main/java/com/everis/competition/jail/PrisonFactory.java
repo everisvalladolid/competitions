@@ -21,6 +21,15 @@ public class PrisonFactory {
 		private int iteratorAnton = 1;
 		private boolean prisonersForCompetition = true; // There are players for the match.
 
+		public int getNumberOfPrisoners() {
+			// Returns the current number of prisoners();
+			return this.prisonerList.size(); 
+		}
+		
+		public int getNumberOfRoundsPerPrisoner() {
+			return getNumberOfPrisoners()-1;
+		}
+			
 		public PrisonFactory() {
 			/*
 			 * Creator method,
@@ -43,7 +52,7 @@ public class PrisonFactory {
 				} 
 			 }
 			 
-			 if(prisonerList.size()==0) {
+			 if(getNumberOfPrisoners()==0) {
 				 // Wrong list creation, there are not prisoners for playing.
 				 prisonersForCompetition = false;
 				 
@@ -70,7 +79,7 @@ public class PrisonFactory {
 			/*
 			 * The goal of this function is to compute the indexes for the next two players for the competition
 			 */
-			int listSize = prisonerList.size()-1;
+			int listSize = getNumberOfPrisoners()-1;
 			iteratorAnton +=1;
 			if(iteratorAnton > listSize) {
 				iteratorPaco += 1;

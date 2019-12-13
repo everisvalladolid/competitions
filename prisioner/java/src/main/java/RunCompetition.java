@@ -31,6 +31,6 @@ public class RunCompetition {
 	        myScoring.addScores(prisonersToConfess[PACO_POSITION].getName(), prisonersToConfess[ANTON_POSITION].getName(), puntuations[PACO_POSITION], puntuations[ANTON_POSITION]);
 	        myScoring.printRound();
 		  }
-		  myScoring.printFinalResults();
+		  myScoring.printFinalResults(myPrisonFactory.getNumberOfRoundsPerPrisoner());
 	    }
 }

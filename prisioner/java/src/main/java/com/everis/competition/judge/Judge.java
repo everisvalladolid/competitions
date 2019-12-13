@@ -9,14 +9,7 @@ public class Judge {
 	/*
 	 * This class made a confession for every round
 	 * storing the decisions made for every player into a list. 
-	 */
-	private static final int NUMBER_CONFESSIONS = 100;
-	private static final int LUCKY_BOTH_YEARS = 5;
-	private static final int UNLUCKY_BOTH_YEARS = 7;
-	private static final int LUCKY_YEARS_CONFESSION = 2;
-	private static final int BAD_YEARS_CONFESSION = 10;
-	
-	
+	 */	
 	IPrisoner paco;
 	IPrisoner anton;
 	ArrayList<Decision> decisionsPaco;
@@ -53,7 +46,7 @@ public class Judge {
     	 * and stores the result in a list.
     	 */
         int pacoDecision, antonDecision;
-        for (int i = 0; i < NUMBER_CONFESSIONS; i++) {
+        for (int i = 0; i < Constants.NUMBER_CONFESSIONS; i++) {
             pacoDecision = paco.decide(decisionsPaco);
             antonDecision = anton.decide(decisionsAnton);
             decisionsPaco.add(new Decision(pacoDecision, antonDecision));
@@ -78,24 +71,24 @@ public class Judge {
     		// If both decisions were the same
     		if(decisionPaco == decisionAnton) {
     			if(decisionPaco==Decision.CONFESS  || decisionPaco==Decision.BRIBERY) {
-    				accPaco += UNLUCKY_BOTH_YEARS;
-    				accAnton += UNLUCKY_BOTH_YEARS;
+    				accPaco += Constants.UNLUCKY_BOTH_YEARS;
+    				accAnton += Constants.UNLUCKY_BOTH_YEARS;
     			} else {
     				// Both decide to negate and dont confess
-    				accPaco += LUCKY_BOTH_YEARS;
-    				accAnton += LUCKY_BOTH_YEARS;
+    				accPaco += Constants.LUCKY_BOTH_YEARS;
+    				accAnton += Constants.LUCKY_BOTH_YEARS;
     			}
     			
     		} else {
     			// Decisions differs
     			boolean luckyForPaco = isLuckyForPaco(decisionPaco, decisionAnton);
     			if(luckyForPaco) {
-    				accPaco += LUCKY_YEARS_CONFESSION;
-    				accAnton += BAD_YEARS_CONFESSION;
+    				accPaco += Constants.LUCKY_YEARS_CONFESSION;
+    				accAnton += Constants.BAD_YEARS_CONFESSION;
     			} else {
     				// Anton was lucky this time
-    				accAnton += LUCKY_YEARS_CONFESSION;
-    				accPaco += BAD_YEARS_CONFESSION;
+    				accAnton += Constants.LUCKY_YEARS_CONFESSION;
+    				accPaco += Constants.BAD_YEARS_CONFESSION;
     			}
     			
     		}
