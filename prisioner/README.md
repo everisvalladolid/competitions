@@ -39,6 +39,8 @@ Se os proveerá una interfaz que deberéis implementar, de la manera que estimé
 Tu implementación y la de tu contrincante se pasarán a un programa que hará la simulación 100 veces y mostrará el resultado. En todo momento, tendrás acceso a la implementación de este programa.
 Paco y Antón siempre han tenido algunos problemas de personalidad múltiple. Puedes participar en el concurso con hasta 2 compañeros.
 ### Competición
+La competición se realizará en formato de liga, donde se simularán todas las jornadas enfrentando las implementaciones de los
+concursantes 2 a 2. El campeón de cada categoría será quien acumule menor número de puntos en total.
 En caso de empate, se simularán de nuevo los enfrentamientos, esta vez, solo entre los concursantes empatados, siendo el campeón nuevamente, quien acumule menor número de puntos.
 En caso de nuevo empate, se irán añadiendo nuevos concursantes en orden de clasificación hasta que se resuelva el desemapte, siendo el campeón el concursante con menor número de puntos de entre los empatados originalmente (los concursantes que se añaden a la simulación para resolver el empate ya no optarán a proclamarse campeones)
 ### Cómo participar
