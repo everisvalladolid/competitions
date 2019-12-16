@@ -69,5 +69,14 @@ var PrisonFactory = function(){
         */
         return this.prisonersForCompetition;
     };
+
+    this.getNumberOfPrisoners = function() {
+        // Returns the current number of prisoners();
+        return this.prisonersList.length; 
+    }
+    
+    this.getNumberOfRoundsPerPrisoner = function() {
+        return this.getNumberOfPrisoners()-1;
+    }
 };    
 module.exports.PrisonFactory = PrisonFactory;

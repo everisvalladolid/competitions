@@ -33,6 +33,6 @@ while(myPrisonFactory.getArePrisonersNotMatched()){
 	myScoring.addScores(prisonersToConfess["paco"].getName(), prisonersToConfess["anton"].getName(), puntuations[PACO_POSITION],puntuations[ANTON_POSITION]);
 	webResults+=myScoring.printRound();
 }
-webResults+=myScoring.printFinalResults();
+webResults+=myScoring.printFinalResults(myPrisonFactory.getNumberOfRoundsPerPrisoner());
 runCompetition(webResults);
 

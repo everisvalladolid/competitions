@@ -1,18 +1,18 @@
 /**
  * http://usejsdoc.org/
  */
-var DECISION_OPTIONS = {
+const DECISION_OPTIONS = {
 		NEGATION: 0,
 		CONFESS: 1,
-		BRAVERY:2
+		BRIBERY:2
 }
 
 
 var Decision = function(one, theOther){
-	if((one>DECISION_OPTIONS.BRAVERY || one<DECISION_OPTIONS.NEGATION)){
+	if((one>DECISION_OPTIONS.BRIBERY || one<DECISION_OPTIONS.NEGATION)){
 		one = DECISION_OPTIONS.NEGATION;
 	}
-	if((theOther>DECISION_OPTIONS.BRAVERY || theOther<DECISION_OPTIONS.NEGATION)){
+	if((theOther>DECISION_OPTIONS.BRIBERY || theOther<DECISION_OPTIONS.NEGATION)){
 		theOther = DECISION_OPTIONS.NEGATION;
 	}
 	this._myDecision = one;

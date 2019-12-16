@@ -1,20 +1,15 @@
 /**
  * http://usejsdoc.org/
  */
-var Decision = require('../prisoner/Decision.js').Decision;
-var DECISION_OPTIONS = require('../prisoner/Decision.js').DECISION_OPTIONS;
+var Decision = require('../prisoner/Decision.js').Decision
+var DECISION_OPTIONS = require('../prisoner/Decision.js').DECISION_OPTIONS
+var CONSTANTS = require('./Constants.js').CONSTANTS
 
 var Judge = function() {
 	/*
 	 * This class made a confession for every round
 	 * storing the decisions made for every player into a list. 
-	 */
-	this._NUMBER_CONFESSIONS = 100;
-	this._LUCKY_BOTH_YEARS = 5;
-	this._UNLUCKY_BOTH_YEARS = 7;
-	this._LUCKY_YEARS_CONFESSION = 2;
-	this._BAD_YEARS_CONFESSION = 10;
-	
+	 */	
 	this._paco;
 	this._anton;
 	this._decisionsPaco = new Array();
@@ -47,7 +42,7 @@ var Judge = function() {
     	 * and stores the result in a list.
     	 */
 		var pacoDecision, antonDecision;
-		for(var i = 0; i < this._NUMBER_CONFESSIONS; i++){
+		for(var i = 0; i < CONSTANTS.NUMBER_CONFESSIONS; i++){
 			pacoDecision = this._paco.decide(this._decisionsPaco);
 			antonDecision = this._anton.decide(this._decisionsAnton);
 			this._decisionsPaco.push(new Decision(pacoDecision, antonDecision));
@@ -72,23 +67,23 @@ var Judge = function() {
 			// If both decisions were the same
 			if(numericDecisionPaco == numericDecisionAnton){
 				if(numericDecisionPaco==DECISION_OPTIONS.CONFESS || numericDecisionPaco==DECISION_OPTIONS.BRIBERY) {
-					accPaco += this._UNLUCKY_BOTH_YEARS;
-					accAnton += this._UNLUCKY_BOTH_YEARS;
+					accPaco += CONSTANTS.UNLUCKY_BOTH_YEARS;
+					accAnton += CONSTANTS.UNLUCKY_BOTH_YEARS;
 				} else {
-					accPaco += this._LUCKY_BOTH_YEARS;
-					accAnton += this._LUCKY_BOTH_YEARS;
+					accPaco += CONSTANTS.LUCKY_BOTH_YEARS;
+					accAnton += CONSTANTS.LUCKY_BOTH_YEARS;
 				}
 			} else {
 				// Decisions differs
 				var luckyForPaco = this._isLuckyForPaco(numericDecisionPaco, numericDecisionAnton);
 				if(luckyForPaco==true){
-					accPaco += this._LUCKY_YEARS_CONFESSION;
-					accAnton += this._BAD_YEARS_CONFESSION;
+					accPaco += CONSTANTS.LUCKY_YEARS_CONFESSION;
+					accAnton += CONSTANTS.BAD_YEARS_CONFESSION;
 					
 				} else {
 					// Anton Was lucky this time.
-					accAnton += this._LUCKY_YEARS_CONFESSION;
-					accPaco += this._BAD_YEARS_CONFESSION;
+					accAnton += CONSTANTS.LUCKY_YEARS_CONFESSION;
+					accPaco += CONSTANTS.BAD_YEARS_CONFESSION;
 				}
 
 			}
@@ -100,7 +95,7 @@ var Judge = function() {
 	this._isLuckyForPaco = function(numericDecisionPaco, numericDecisionAnton) {
 		var luckyForPaco = false;
 		var confessAndNegation = ((numericDecisionPaco== DECISION_OPTIONS.CONFESS)&&(numericDecisionAnton==DECISION_OPTIONS.NEGATION));
-		var briberyAndConfess = ((numericDecisionPaco== DECISION_OPTIONS.BRIVERY)&&(numericDecisionAnton==DECISION_OPTIONS.CONFESS));
+		var briberyAndConfess = ((numericDecisionPaco== DECISION_OPTIONS.BRIBERY)&&(numericDecisionAnton==DECISION_OPTIONS.CONFESS));
 		var negationAndBribery = ((numericDecisionPaco== DECISION_OPTIONS.NEGATION)&&(numericDecisionAnton==DECISION_OPTIONS.BRIBERY));
 		if(confessAndNegation|| briberyAndConfess || negationAndBribery) luckyForPaco=true;
 		return luckyForPaco;
